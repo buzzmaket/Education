@@ -45,6 +45,15 @@
       letter-spacing: 2.5px; text-transform: uppercase;
       color: var(--gold); margin-bottom: .9rem;
     }
+    .label-row { display: flex; align-items: center; gap: 1rem; margin-bottom: .9rem; }
+    .label-row .label { margin-bottom: 0; }
+    .muni-tag {
+      display: inline-flex; align-items: center; gap: .35rem;
+      background: var(--navy); color: #fff;
+      font-size: .72rem; font-weight: 600; letter-spacing: 1px;
+      padding: .28rem .85rem; border-radius: 20px;
+    }
+    .muni-tag::before { content: "📍"; font-size: .75rem; }
     .section-title {
       font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 700; color: var(--navy-dark); line-height: 1.2; margin-bottom: 1.2rem;
@@ -381,7 +390,10 @@
   <div class="container">
 
     <div class="fade-up">
-      <span class="label">חזון ואסטרטגיה</span>
+      <div class="label-row">
+        <span class="label">חזון ואסטרטגיה</span>
+        <span class="muni-tag">עיריית גבעתיים</span>
+      </div>
       <h2 class="section-title">ממחלקה מתפקדת<br>למותג חינוכי מוביל</h2>
       <p class="section-sub">
         כל מערכת חינוך ברשות מקומית טומנת בחובה פוטנציאל עצום שטרם מומש.
@@ -591,7 +603,10 @@
   <div class="container">
 
     <div class="fade-up">
-      <span class="label">שיתוף ציבור</span>
+      <div class="label-row">
+        <span class="label">שיתוף ציבור</span>
+        <span class="muni-tag">עיריית נס ציונה</span>
+      </div>
       <h2 class="section-title">הקהילה כשותפה לשינוי</h2>
       <p class="section-sub">שיתוף ציבור אמיתי אינו תהליך פורמלי — הוא הדרך היחידה ליצור שינוי שמחזיק לאורך זמן</p>
     </div>
