@@ -97,6 +97,19 @@
     #hero::before { content: ''; position: absolute; top:-80px; left:-80px; width:560px; height:560px; background: radial-gradient(circle, rgba(196,151,59,.07) 0%, transparent 68%); pointer-events:none; }
     #hero::after  { content: ''; position: absolute; bottom:-60px; right:5%; width:420px; height:420px; background: radial-gradient(circle, rgba(27,58,107,.05) 0%, transparent 68%); pointer-events:none; }
 
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; width: 100%;
+    }
+    .hero-video-wrap {
+      position: relative; width: 100%; aspect-ratio: 16/9;
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      animation: heroIn .9s .3s var(--ease) both;
+    }
+    .hero-video-wrap iframe {
+      position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+    }
+
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
       border: 1px solid rgba(196,151,59,.35); background: rgba(196,151,59,.08);
@@ -105,15 +118,19 @@
       margin-bottom: 1.8rem;
     }
     .hero-badge::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--gold); }
-    .hero-title { font-family: var(--font-display); font-size: clamp(3rem,6.5vw,5.2rem); font-weight: 900; line-height: 1.08; letter-spacing: -1.5px; color: var(--navy-dark); margin-bottom: 1.5rem; animation: heroIn .9s var(--ease) both; }
+    .hero-title { font-family: var(--font-display); font-size: clamp(2.4rem,4.5vw,4.2rem); font-weight: 900; line-height: 1.08; letter-spacing: -1.5px; color: var(--navy-dark); margin-bottom: 1.5rem; animation: heroIn .9s var(--ease) both; }
     .hero-title .gold { color: var(--gold); }
-    .hero-sub { font-size: 1.15rem; font-weight: 300; color: var(--text-light); line-height: 1.85; max-width: 580px; margin-bottom: 2.8rem; animation: heroIn .9s .15s var(--ease) both; }
+    .hero-sub { font-size: 1.05rem; font-weight: 300; color: var(--text-light); line-height: 1.85; margin-bottom: 2.8rem; animation: heroIn .9s .15s var(--ease) both; }
     .btn-primary { display: inline-flex; align-items: center; gap: 9px; background: var(--navy); color: var(--white); padding: 15px 34px; border-radius: var(--radius); font-size: .95rem; font-weight: 500; transition: background .25s, transform .25s, box-shadow .25s; animation: heroIn .9s .25s var(--ease) both; }
     .btn-primary:hover { background: var(--navy-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(27,58,107,.28); }
     .hero-stats { display: flex; gap: 3rem; margin-top: 4.5rem; padding-top: 2.8rem; border-top: 1px solid var(--gray-200); animation: heroIn .9s .35s var(--ease) both; }
     .stat-num { font-family: var(--font-display); font-size: 2.1rem; font-weight: 700; color: var(--navy); line-height: 1; }
     .stat-lbl { font-size: .82rem; color: var(--text-light); margin-top: 4px; }
     @keyframes heroIn { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
 
     /* ── PROCESS ─────────────────────────────────────── */
     #process { background: var(--navy-dark); padding: 72px 5%; }
@@ -330,21 +347,34 @@
 <!-- ═══ HERO ════════════════════════════════════════════ -->
 <section id="hero">
   <div class="container">
-    <div class="hero-badge">BuzzMarket Group</div>
-    <h1 class="hero-title">
-      אקוסיסטם<br>
-      למצוינות חינוכית<br>
-      <span class="gold">ברשות</span>
-    </h1>
-    <p class="hero-sub">
-      אנחנו הופכים מערכות חינוך מקומיות למותגים חינוכיים מובילים —
-      דרך אבחון מעמיק, חזון אסטרטגי, מיתוג מקצועי ושיתוף ציבור רחב.
-    </p>
-    <a href="#process" class="btn-primary">← גלו את הדרך</a>
-    <div class="hero-stats">
-      <div><div class="stat-num">10+</div><div class="stat-lbl">פרויקטים פעילים</div></div>
-      <div><div class="stat-num">5+</div><div class="stat-lbl">רשויות מקומיות</div></div>
-      <div><div class="stat-num">100%</div><div class="stat-lbl">מחויבות לתהליך</div></div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">BuzzMarket Group</div>
+        <h1 class="hero-title">
+          אקוסיסטם<br>
+          למצוינות חינוכית<br>
+          <span class="gold">ברשות</span>
+        </h1>
+        <p class="hero-sub">
+          הפכנו מערכות חינוך מקומיות למותגים חינוכיים מובילים —
+          דרך אבחון מעמיק, חזון אסטרטגי, מיתוג מקצועי ושיתוף ציבור רחב.
+          זה מה שעשינו. כך עשינו זאת.
+        </p>
+        <a href="#process" class="btn-primary">← ראו איך עשינו את זה</a>
+        <div class="hero-stats">
+          <div><div class="stat-num">10+</div><div class="stat-lbl">פרויקטים פעילים</div></div>
+          <div><div class="stat-num">5+</div><div class="stat-lbl">רשויות מקומיות</div></div>
+          <div><div class="stat-num">100%</div><div class="stat-lbl">מחויבות לתהליך</div></div>
+        </div>
+      </div>
+      <div class="hero-video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/ffhXbu9rIXM"
+          title="BuzzMarket Education"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
     </div>
   </div>
 </section>
@@ -353,32 +383,32 @@
 <!-- ═══ PROCESS ══════════════════════════════════════════ -->
 <section id="process">
   <div class="container">
-    <p class="process-lbl">האופן שבו אנו עובדים</p>
+    <p class="process-lbl">כך נראה התהליך שעשינו</p>
     <div class="process-grid">
       <div class="proc-item">
         <div class="proc-dot"></div>
         <h3 class="proc-title">אבחון ומיפוי</h3>
-        <p class="proc-desc">צילום רנטגן מעמיק של המערכת — ה-DNA, נקודות החוזק, האתגרים והיהלומים הלא מלוטשים</p>
+        <p class="proc-desc">ערכנו צילום רנטגן מעמיק של המערכת — חשפנו את ה-DNA, נקודות החוזק, האתגרים והיהלומים הלא מלוטשים</p>
       </div>
       <div class="proc-item">
         <div class="proc-dot"></div>
         <h3 class="proc-title">חזון ואסטרטגיה</h3>
-        <p class="proc-desc">גיבוש נרטיב חינוכי אחיד, מיצוב ייחודי וחזון שמחבר את כל בעלי העניין — ומוצג להנהלת הרשות</p>
+        <p class="proc-desc">גיבשנו נרטיב חינוכי אחיד, מיצוב ייחודי וחזון שחיבר את כל בעלי העניין — והצגנו אותו להנהלת הרשות ולראש העיר</p>
       </div>
       <div class="proc-item">
         <div class="proc-dot"></div>
         <h3 class="proc-title">מיתוג וזהות</h3>
-        <p class="proc-desc">בניית שפה ויזואלית מקצועית — לוגו, ספר מותג, גרפיקה שנתית ומסרים מרכזיים</p>
+        <p class="proc-desc">בנינו שפה ויזואלית מקצועית — לוגו, ספר מותג, גרפיקה שנתית ומסרים מרכזיים שהפכו לשפה אחידה של הרשות</p>
       </div>
       <div class="proc-item">
         <div class="proc-dot"></div>
         <h3 class="proc-title">שיתוף ציבור</h3>
-        <p class="proc-desc">הורים, צוותים וקהילה כשותפים אמיתיים — ליצירת לגיטימציה רחבה ותחושת בעלות</p>
+        <p class="proc-desc">הכנסנו הורים, צוותים וקהילה כשותפים אמיתיים — ויצרנו לגיטימציה רחבה ותחושת בעלות על המהלך</p>
       </div>
       <div class="proc-item">
         <div class="proc-dot"></div>
         <h3 class="proc-title">מדידה והערכה</h3>
-        <p class="proc-desc">מעקב כמותי ואיכותי לאורך השנה — להוכחת השינוי ולהכנת תיק המועמדות לפרס</p>
+        <p class="proc-desc">עקבנו כמותית ואיכותית לאורך השנה — הוכחנו את השינוי והכנו תיק מועמדות לפרס</p>
       </div>
     </div>
   </div>
@@ -397,7 +427,7 @@
       <h2 class="section-title">ממחלקה מתפקדת<br>למותג חינוכי מוביל</h2>
       <p class="section-sub">
         כל מערכת חינוך ברשות מקומית טומנת בחובה פוטנציאל עצום שטרם מומש.
-        המשימה שלנו היא לחשוף אותו ולהפוך אותו לסיפור.
+        חשפנו אותו — והפכנו אותו לסיפור שכולם מספרים.
       </p>
     </div>
 
@@ -405,19 +435,19 @@
     <div class="vision-intro fade-up">
       <div class="vision-body">
         <p>
-          לאחר תהליך אבחון מעמיק, אנו מזקקים את "האני המאמין" של מנהל האגף
-          ומגבשים מסמך חזון אסטרטגי מקיף. המסמך מציג את ה-DNA המערכתי,
-          מאתר את "היהלומים הלא מלוטשים" ומגדיר את ה"שפיץ" הייחודי של הרשות —
+          לאחר תהליך אבחון מעמיק, זיקקנו את "האני המאמין" של מנהל האגף
+          וגיבשנו מסמך חזון אסטרטגי מקיף. המסמך הציג את ה-DNA המערכתי,
+          איתר את "היהלומים הלא מלוטשים" והגדיר את ה"שפיץ" הייחודי של הרשות —
           מה שיש כאן שאין בשום מקום אחר.
         </p>
         <p>
-          בסיום התהליך מוגשת מצגת מנהלים להנהלת הרשות ולראש העיר — המציגה
-          את הדרך להפוך את מערכת החינוך המקומית למגדלור ארצי.
-          הנרטיב החינוכי האחיד שנוצר מחבר את כלל בעלי העניין: הורים, צוותים,
+          בסיום התהליך הגשנו מצגת מנהלים להנהלת הרשות ולראש העיר —
+          שהציגה את הדרך להפוך את מערכת החינוך המקומית למגדלור ארצי.
+          הנרטיב החינוכי האחיד שנוצר חיבר את כלל בעלי העניין: הורים, צוותים,
           מפקחים ונבחרי ציבור.
         </p>
         <p>
-          המסמך מהווה את הבסיס לכל הפעילות השנתית — ממנו נגזרים הפרויקטים,
+          המסמך שנוצר היווה את הבסיס לכל הפעילות השנתית — ממנו נגזרו הפרויקטים,
           חומרי השיווק, תיק המועמדות לפרס ואסטרטגיית שיתוף הציבור.
         </p>
       </div>
@@ -472,8 +502,8 @@
         <div class="vision-block-icon">♾️</div>
         <h4 class="vision-block-title">חינוך מסביב לשעון — הוליסטי ורציף</h4>
         <p class="vision-block-desc">
-          החזון שלנו יוצר סינרגיה מוחלטת בין החינוך הפורמלי לבלתי פורמלי,
-          ומעניק מענה הוליסטי לכל תלמיד — ללא קטיעות:
+          יצרנו סינרגיה מוחלטת בין החינוך הפורמלי לבלתי פורמלי,
+          והענקנו מענה הוליסטי לכל תלמיד — ללא קטיעות:
         </p>
         <ul>
           <li>בוקר: בתי ספר וגנים מובילים, פדגוגיה של מצוינות</li>
@@ -486,7 +516,7 @@
         <div class="vision-block-icon">🛡️</div>
         <h4 class="vision-block-title">חוסן ומוגנות — מבחן הלחץ האולטימטיבי</h4>
         <p class="vision-block-desc">
-          מערכת החינוך שאנו בונים מוכיחה את עצמה גם בזמן משבר:
+          מערכת החינוך שבנינו הוכיחה את עצמה גם בזמן משבר:
         </p>
         <ul>
           <li>100% מיגון פיזי של כל מוסדות החינוך</li>
@@ -528,7 +558,7 @@
     <!-- Pillars -->
     <div class="pillars-wrap fade-up">
       <span class="label">עמודי התווך</span>
-      <h3 class="section-title" style="font-size:1.9rem;">עליהם אנו בונים את המותג</h3>
+      <h3 class="section-title" style="font-size:1.9rem;">עליהם בנינו את המותג</h3>
       <div class="pillars-grid">
         <div class="pillar">
           <div class="pillar-ico">🛡️</div>
@@ -608,7 +638,7 @@
         <span class="muni-tag">עיריית נס ציונה</span>
       </div>
       <h2 class="section-title">הקהילה כשותפה לשינוי</h2>
-      <p class="section-sub">שיתוף ציבור אמיתי אינו תהליך פורמלי — הוא הדרך היחידה ליצור שינוי שמחזיק לאורך זמן</p>
+      <p class="section-sub">שיתוף ציבור אמיתי אינו תהליך פורמלי — הוא הדרך היחידה ליצור שינוי שמחזיק לאורך זמן. כך עשינו את זה.</p>
     </div>
 
     <div class="eng-content fade-up">
@@ -659,8 +689,8 @@
   <div class="container">
     <div class="fade-up">
       <span class="label">עשייה בשטח</span>
-      <h2 class="section-title">פרויקטים נבחרים</h2>
-      <p class="section-sub">פרויקטים שנולדו מתוך תהליך אסטרטגי מעמיק וכיום משנים את פני החינוך ברשויות אלו</p>
+      <h2 class="section-title">פרויקטים שיצרנו</h2>
+      <p class="section-sub">פרויקטים שנולדו מתוך תהליך אסטרטגי מעמיק — ושינו את פני החינוך ברשויות אלו</p>
     </div>
 
     <div class="projects-grid fade-up">
