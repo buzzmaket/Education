@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>אקוסיסטם למצוינות חינוכית ברשות | BuzzMarket</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset & Root ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #1B3A6B;
+      --navy-dark:   #0F2347;
+      --navy-light:  #2A4F8A;
+      --gold:        #C4973B;
+      --gold-light:  #D4A84B;
+      --white:       #FFFFFF;
+      --off-white:   #FAFAF9;
+      --gray-100:    #F6F5F3;
+      --gray-200:    #ECEAE6;
+      --gray-300:    #DDDBD6;
+      --gray-500:    #9A9891;
+      --gray-700:    #5B5955;
+      --text:        #1A1A1A;
+      --text-light:  #5B5955;
+
+      --font-display: 'Frank Ruhl Libre', serif;
+      --font-body:    'Heebo', sans-serif;
+
+      --radius:    4px;
+      --radius-lg: 12px;
+      --shadow:    0 2px 20px rgba(27,58,107,.07);
+      --shadow-lg: 0 8px 40px rgba(27,58,107,.14);
+      --ease:      cubic-bezier(.4,0,.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--white);
+      direction: rtl;
+    }
+
+    a { text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── Utilities ────────────────────────────────────── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+
+    .label {
+      display: block;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .9rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--navy-dark);
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 620px;
+      line-height: 1.85;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s var(--ease), transform .65s var(--ease);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── Placeholder image ────────────────────────────── */
+    .img-ph {
+      background: var(--gray-200);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      color: var(--gray-500);
+      font-size: .72rem;
+      border-radius: var(--radius);
+      transition: background .25s;
+    }
+    .img-ph:hover { background: var(--gray-300); }
+    .img-ph svg { opacity: .45; }
+
+    /* ─── NAV ──────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      height: 64px;
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200);
+      transition: box-shadow .3s;
+    }
+    #nav.scrolled { box-shadow: 0 2px 18px rgba(27,58,107,.09); }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--navy-dark);
+      letter-spacing: -.3px;
+    }
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2.2rem;
+    }
+    .nav-links a {
+      font-size: .84rem;
+      font-weight: 500;
+      color: var(--gray-700);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+
+    /* ─── HERO ─────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 5% 80px;
+      background: linear-gradient(155deg, var(--white) 0%, var(--gray-100) 55%, var(--white) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: -80px;
+      width: 560px; height: 560px;
+      background: radial-gradient(circle, rgba(196,151,59,.07) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: 5%;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(27,58,107,.05) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(196,151,59,.35);
+      background: rgba(196,151,59,.08);
+      border-radius: 100px;
+      padding: 5px 16px;
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 1.2px;
+      margin-bottom: 1.8rem;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6.5vw, 5.2rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      color: var(--navy-dark);
+      margin-bottom: 1.5rem;
+      animation: heroIn .9s var(--ease) both;
+    }
+    .hero-title .gold { color: var(--gold); }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.85;
+      max-width: 580px;
+      margin-bottom: 2.8rem;
+      animation: heroIn .9s .15s var(--ease) both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--navy);
+      color: var(--white);
+      padding: 15px 34px;
+      border-radius: var(--radius);
+      font-size: .95rem;
+      font-weight: 500;
+      transition: background .25s, transform .25s, box-shadow .25s;
+      animation: heroIn .9s .25s var(--ease) both;
+    }
+    .btn-primary:hover {
+      background: var(--navy-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(27,58,107,.28);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4.5rem;
+      padding-top: 2.8rem;
+      border-top: 1px solid var(--gray-200);
+      animation: heroIn .9s .35s var(--ease) both;
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-size: .82rem;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    @keyframes heroIn {
+      from { opacity:0; transform: translateY(22px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+
+    /* ─── PROCESS ──────────────────────────────────────── */
+    #process {
+      background: var(--navy-dark);
+      padding: 72px 5%;
+    }
+
+    .process-lbl {
+      font-size: .72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 2.8rem;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.1);
+    }
+
+    .proc-item {
+      background: var(--navy-dark);
+      padding: 2.2rem 1.8rem;
+      position: relative;
+      transition: background .28s;
+      cursor: default;
+    }
+    .proc-item:hover { background: rgba(255,255,255,.04); }
+
+    .proc-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-bottom: 1.2rem;
+      opacity: .7;
+    }
+
+    .proc-title {
+      font-family: var(--font-display);
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .6rem;
+      line-height: 1.3;
+    }
+
+    .proc-desc {
+      font-size: .82rem;
+      color: rgba(255,255,255,.5);
+      line-height: 1.65;
+    }
+
+    .proc-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0; left: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .3s var(--ease);
+    }
+    .proc-item:hover::after { transform: scaleX(1); }
+
+    /* ─── VISION ───────────────────────────────────────── */
+    #vision {
+      padding: 100px 5%;
+      background: var(--white);
+    }
+
+    .vision-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 3.5rem;
+    }
+
+    .vision-body p {
+      font-size: .98rem;
+      color: var(--text-light);
+      line-height: 1.9;
+      margin-bottom: 1.3rem;
+    }
+
+    /* Comparison table */
+    .comp-table {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .comp-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .comp-head-cell {
+      padding: 1.1rem 1.6rem;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+    .comp-head-cell.std  { background: var(--gray-200); color: var(--gray-700); }
+    .comp-head-cell.lead { background: var(--navy); color: var(--white); }
+
+    .comp-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--gray-200);
+    }
+    .comp-cell {
+      padding: 1.1rem 1.6rem;
+      font-size: .88rem;
+      line-height: 1.55;
+    }
+    .comp-cell.std  { background: var(--white); color: var(--gray-700); }
+    .comp-cell.lead { background: rgba(196,151,59,.05); color: var(--navy-dark); font-weight: 500; }
+
+    /* Pillars */
+    .pillars-wrap { margin-top: 5rem; }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.8rem;
+      margin-top: 2.5rem;
+    }
+
+    .pillar {
+      border-top: 3px solid var(--gold);
+      padding: 2rem 1.6rem;
+      background: var(--gray-100);
+      border-radius: 0 0 var(--radius) var(--radius);
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    }
+    .pillar:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .pillar-ico { font-size: 1.9rem; margin-bottom: .9rem; }
+
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy-dark);
+      margin-bottom: .6rem;
+    }
+    .pillar-desc {
+      font-size: .83rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ─── PROJECTS ─────────────────────────────────────── */
+    #projects {
+      padding: 100px 5%;
+      background: var(--gray-100);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .proj-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .32s var(--ease), box-shadow .32s var(--ease);
+      display: flex;
+      flex-direction: column;
+    }
+    .proj-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .proj-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+    }
+
+    .proj-body { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
+
+    .proj-tag {
+      display: inline-block;
+      font-size: .67rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: rgba(27,58,107,.08);
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: .7rem;
+    }
+
+    .proj-title {
+      font-family: var(--font-display);
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--navy-dark);
+      margin-bottom: .65rem;
+      line-height: 1.35;
+    }
+
+    .proj-desc {
+      font-size: .84rem;
+      color: var(--text-light);
+      line-height: 1.72;
+      flex: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .proj-values {
+      border-top: 1px solid var(--gray-200);
+      padding-top: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+    .proj-val {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      font-size: .79rem;
+    }
+    .proj-val-lbl {
+      font-weight: 700;
+      color: var(--navy);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .proj-val-txt { color: var(--text-light); }
+
+    /* ─── ENGAGEMENT ───────────────────────────────────── */
+    #engagement {
+      padding: 100px 5%;
+      background: var(--white);
+    }
+
+    .eng-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4.5rem;
+      align-items: start;
+      margin-top: 3.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .eng-body p {
+      font-size: .98rem;
+      color: var(--text-light);
+      line-height: 1.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .eng-quote {
+      background: var(--navy-dark);
+      border-radius: var(--radius-lg);
+      padding: 2.8rem;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .eng-quote::before {
+      content: '"';
+      font-family: var(--font-display);
+      font-size: 9rem;
+      color: rgba(196,151,59,.15);
+      position: absolute;
+      top: -10px; right: 1.5rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .q-text {
+      font-size: 1rem;
+      line-height: 1.85;
+      position: relative;
+      z-index: 1;
+    }
+    .q-author {
+      margin-top: 1.4rem;
+      font-size: .82rem;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .eng-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .eng-ph { aspect-ratio: 1; }
+
+    /* ─── BRANDING ─────────────────────────────────────── */
+    #branding {
+      padding: 100px 5%;
+      background: var(--gray-100);
+    }
+
+    .brand-layout {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 3.5rem;
+    }
+
+    .brand-features { display: flex; flex-direction: column; gap: 2rem; }
+
+    .brand-feat {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+    .brand-ico {
+      width: 46px; height: 46px;
+      flex-shrink: 0;
+      background: var(--navy);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+    .brand-feat-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy-dark);
+      margin-bottom: .3rem;
+    }
+    .brand-feat-desc {
+      font-size: .84rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .brand-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .brand-ph { aspect-ratio: 3/4; }
+
+    /* ─── CONTACT ──────────────────────────────────────── */
+    #contact {
+      background: var(--navy-dark);
+      padding: 88px 5%;
+      text-align: center;
+    }
+    .contact-inner { max-width: 580px; margin: 0 auto; }
+
+    .contact-lbl {
+      font-size: .72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+      display: block;
+    }
+
+    .contact-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1.3rem;
+    }
+
+    .contact-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,.55);
+      line-height: 1.8;
+      margin-bottom: 2.8rem;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--gold);
+      color: var(--navy-dark);
+      padding: 17px 40px;
+      border-radius: var(--radius);
+      font-size: .98rem;
+      font-weight: 700;
+      transition: background .25s, transform .25s, box-shadow .25s;
+    }
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(196,151,59,.38);
+    }
+
+    /* ─── FOOTER ───────────────────────────────────────── */
+    footer {
+      background: #09182E;
+      padding: 1.6rem 5%;
+      text-align: center;
+      font-size: .78rem;
+      color: rgba(255,255,255,.3);
+    }
+
+    /* ─── RESPONSIVE ───────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .process-grid   { grid-template-columns: repeat(3, 1fr); }
+      .pillars-grid   { grid-template-columns: repeat(2, 1fr); }
+      .vision-intro,
+      .eng-content,
+      .brand-layout   { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    @media (max-width: 768px) {
+      #hero { padding: 110px 5% 60px; }
+      .projects-grid  { grid-template-columns: 1fr; }
+      .process-grid   { grid-template-columns: repeat(2, 1fr); }
+      .eng-grid       { grid-template-columns: repeat(2, 1fr); }
+      .brand-gallery  { grid-template-columns: repeat(2, 1fr); }
+      .nav-links      { display: none; }
+      .hero-stats     { flex-wrap: wrap; gap: 2rem; }
+      .pillars-grid   { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════ -->
+<nav id="nav">
+  <a href="#" class="nav-logo">BUZZ<span>MARKET</span></a>
+  <ul class="nav-links">
+    <li><a href="#process">התהליך</a></li>
+    <li><a href="#vision">חזון ואסטרטגיה</a></li>
+    <li><a href="#projects">פרויקטים</a></li>
+    <li><a href="#engagement">שיתוף ציבור</a></li>
+    <li><a href="#branding">מיתוג</a></li>
+    <li><a href="#contact">צור קשר</a></li>
+  </ul>
+</nav>
+
+
+<!-- ═══ HERO ═══════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-badge">BuzzMarket Group</div>
+    <h1 class="hero-title">
+      אקוסיסטם<br>
+      למצוינות חינוכית<br>
+      <span class="gold">ברשות</span>
+    </h1>
+    <p class="hero-sub">
+      אנחנו הופכים מערכות חינוך מקומיות למותגים חינוכיים מובילים —
+      דרך אבחון מעמיק, חזון אסטרטגי, מיתוג מקצועי ושיתוף ציבור רחב.
+    </p>
+    <a href="#process" class="btn-primary">← גלו את הדרך</a>
+
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">10+</div>
+        <div class="stat-lbl">פרויקטים פעילים</div>
+      </div>
+      <div>
+        <div class="stat-num">5+</div>
+        <div class="stat-lbl">רשויות מקומיות</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-lbl">מחויבות לתהליך</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PROCESS ════════════════════════════════════════════ -->
+<section id="process">
+  <div class="container">
+    <p class="process-lbl">האופן שבו אנו עובדים</p>
+    <div class="process-grid">
+
+      <div class="proc-item">
+        <div class="proc-dot"></div>
+        <h3 class="proc-title">אבחון ומיפוי</h3>
+        <p class="proc-desc">צילום רנטגן מעמיק של המערכת — ה-DNA, נקודות החוזק, האתגרים והיהלומים הלא מלוטשים</p>
+      </div>
+
+      <div class="proc-item">
+        <div class="proc-dot"></div>
+        <h3 class="proc-title">חזון ואסטרטגיה</h3>
+        <p class="proc-desc">גיבוש נרטיב חינוכי אחיד, מיצוב ייחודי וחזון שמחבר את כל בעלי העניין — ומוצג להנהלת הרשות</p>
+      </div>
+
+      <div class="proc-item">
+        <div class="proc-dot"></div>
+        <h3 class="proc-title">מיתוג וזהות</h3>
+        <p class="proc-desc">בניית שפה ויזואלית מקצועית — לוגו, ספר מותג, גרפיקה שנתית ומסרים מרכזיים</p>
+      </div>
+
+      <div class="proc-item">
+        <div class="proc-dot"></div>
+        <h3 class="proc-title">שיתוף ציבור</h3>
+        <p class="proc-desc">הורים, צוותים וקהילה כשותפים אמיתיים — ליצירת לגיטימציה רחבה ותחושת בעלות</p>
+      </div>
+
+      <div class="proc-item">
+        <div class="proc-dot"></div>
+        <h3 class="proc-title">מדידה והערכה</h3>
+        <p class="proc-desc">מעקב כמותי ואיכותי לאורך השנה — להוכחת השינוי ולהכנת תיק המועמדות לפרס</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ VISION ═════════════════════════════════════════════ -->
+<section id="vision">
+  <div class="container">
+
+    <div class="fade-up">
+      <span class="label">חזון ואסטרטגיה</span>
+      <h2 class="section-title">ממחלקה מתפקדת<br>למותג חינוכי מוביל</h2>
+      <p class="section-sub">
+        כל מערכת חינוך ברשות מקומית טומנת בחובה פוטנציאל עצום שטרם מומש.
+        המשימה שלנו היא לחשוף אותו ולהפוך אותו לסיפור.
+      </p>
+    </div>
+
+    <div class="vision-intro fade-up">
+      <div class="vision-body">
+        <p>
+          לאחר תהליך אבחון מעמיק, אנו מזקקים את "האני המאמין" של מנהל האגף
+          ומגבשים מסמך חזון אסטרטגי מקיף. המסמך מציג את ה-DNA המערכתי,
+          מאתר את "היהלומים הלא מלוטשים" ומגדיר את ה"שפיץ" הייחודי של הרשות —
+          מה שיש כאן שאין בשום מקום אחר.
+        </p>
+        <p>
+          בסיום התהליך מוגשת מצגת מנהלים להנהלת הרשות ולראש העיר — המציגה
+          את הדרך להפוך את מערכת החינוך המקומית למגדלור ארצי.
+          הנרטיב החינוכי האחיד שנוצר מחבר את כלל בעלי העניין: הורים, צוותים,
+          מפקחים ונבחרי ציבור.
+        </p>
+        <p>
+          המסמך מהווה את הבסיס לכל הפעילות השנתית — ממנו נגזרים הפרויקטים,
+          חומרי השיווק, תיק המועמדות לפרס ואסטרטגיית שיתוף הציבור.
+        </p>
+      </div>
+
+      <!-- Comparison -->
+      <div class="comp-table">
+        <div class="comp-head">
+          <div class="comp-head-cell std">אגף חינוך סטנדרטי</div>
+          <div class="comp-head-cell lead">מותג חינוכי מוביל</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell std">אסופת מקרים וסיפורים ללא חוט מקשר</div>
+          <div class="comp-cell lead">נרטיב אחיד ("שפיץ") המייצר גאווה עירונית</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell std">מיקוד צר בציונים והישגים אקדמיים בלבד</div>
+          <div class="comp-cell lead">אקוסיסטם הוליסטי: רצף חינוכי מסביב לשעון</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell std">תגובתיות תקשורתית וכיבויי שריפות</div>
+          <div class="comp-cell lead">שיווק פרואקטיבי, Data Show ושגרירי חינוך</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell std">ניהול נפרד של כל מוסד חינוכי</div>
+          <div class="comp-cell lead">סינרגיה מוחלטת: חינוך פורמלי ובלתי פורמלי</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pillars -->
+    <div class="pillars-wrap fade-up">
+      <span class="label">עמודי התווך</span>
+      <h3 class="section-title" style="font-size:1.9rem;">עליהם אנו בונים את המותג</h3>
+      <div class="pillars-grid">
+
+        <div class="pillar">
+          <div class="pillar-ico">🛡️</div>
+          <h4 class="pillar-title">חוסן ומוגנות</h4>
+          <p class="pillar-desc">בניית מערכת חינוך עמידה עם מעטפת טיפולית מלידה ועד בגרות — לשגרה ולמצב חירום</p>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-ico">🏛️</div>
+          <h4 class="pillar-title">דמוקרטיה ואזרחות</h4>
+          <p class="pillar-desc">חינוך לאזרחות פעילה, ערכי שיתוף ומעורבות קהילתית כבר מגיל הגן ועד לתיכון</p>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-ico">🚀</div>
+          <h4 class="pillar-title">חדשנות ו-STEM</h4>
+          <p class="pillar-desc">הכנת התלמיד לעולם של AI, טכנולוגיה ויזמות דרך למידה חווייתית, מעשית ורלוונטית</p>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-ico">👥</div>
+          <h4 class="pillar-title">הון אנושי</h4>
+          <p class="pillar-desc">פיתוח, שימור והעצמה של הצוותים החינוכיים — המנוע האמיתי של השינוי</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ PROJECTS ════════════════════════════════════════════ -->
+<section id="projects">
+  <div class="container">
+    <div class="fade-up">
+      <span class="label">עשייה בשטח</span>
+      <h2 class="section-title">פרויקטים נבחרים</h2>
+      <p class="section-sub">פרויקטים שנולדו מתוך תהליך אסטרטגי מעמיק וכיום משנים את פני החינוך ברשויות אלו</p>
+    </div>
+
+    <div class="projects-grid fade-up">
+
+      <!-- 1 -->
+      <div class="proj-card">
+        <div class="proj-img img-ph">
+          <svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>תמונה בקרוב</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">גבעתיים</span>
+          <h3 class="proj-title">אתה, אני והשלישי המלאכותי — אוריינות AI</h3>
+          <p class="proj-desc">תוכנית שנתית מערכתית להטמעת בינה מלאכותית ככלי פדגוגי וניהולי, כולל הכשרת 100% מצוותי ההוראה ופיתוח מערכי שיעור מבוססי AI בהומניסטיקה ואמנות.</p>
+          <div class="proj-values">
+            <div class="proj-val"><span class="proj-val-lbl">לרשות:</span><span class="proj-val-txt">מיצוב כחלוצה טכנולוגית, שפה עירונית אחידה וחדשנית</span></div>
+            <div class="proj-val"><span class="proj-val-lbl">לתלמיד:</span><span class="proj-val-txt">מיומנויות המאה ה-21, הכנה מעשית לשוק התעסוקה</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="proj-card">
+        <div class="proj-img img-ph">
+          <svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>תמונה בקרוב</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">גבעתיים</span>
+          <h3 class="proj-title">תוכנית באז"ז — בחירה אישית לכיתות ז'</h3>
+          <p class="proj-desc">מודל למידה המאפשר לתלמידי חטיבות הביניים לבחור תחומי העשרה וללמוד בקבוצות מעורבות ממגוון בתי הספר, במרחבים עירוניים שונים מחוץ לכיתה.</p>
+          <div class="proj-values">
+            <div class="proj-val"><span class="proj-val-lbl">לרשות:</span><span class="proj-val-txt">מקסום משאבים, לכידות חברתית כלל-עירונית</span></div>
+            <div class="proj-val"><span class="proj-val-lbl">לתלמיד:</span><span class="proj-val-txt">פיתוח עצמאות, הרחבת המעגל החברתי</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="proj-card">
+        <div class="proj-img img-ph">
+          <svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>תמונה בקרוב</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">גבעתיים</span>
+          <h3 class="proj-title">מכינות לחיים — הכנה לעולם הבוגר</h3>
+          <p class="proj-desc">יוזמה עירונית לתלמידי י"ב המעניקה כלים פרקטיים לשירות הצבאי, האקדמיה ועולם התעסוקה — ניהול קריירה, מיומנויות פיננסיות וגיבוש זהות.</p>
+          <div class="proj-values">
+            <div class="proj-val"><span class="proj-val-lbl">לרשות:</span><span class="proj-val-txt">דור בוגרים תורם ומשפיע, צמצום נשירה ממסגרות</span></div>
+            <div class="proj-val"><span class="proj-val-lbl">לתלמיד:</span><span class="proj-val-txt">"ארגז כלים" לחיים האמיתיים, תחושת מסוגלות</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="proj-card">
+        <div class="proj-img img-ph">
+          <svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>תמונה בקרוב</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">גבעתיים</span>
+          <h3 class="proj-title">מעבר למסך — חדרים אימרסיביים</h3>
+          <p class="proj-desc">הקמת מרחבי למידה אינטראקטיביים רב-חושיים בטכנולוגיית VR. התלמידים הופכים לשותפים אקטיביים ביצירת התוכן ובתפעול המרחב.</p>
+          <div class="proj-values">
+            <div class="proj-val"><span class="proj-val-lbl">לרשות:</span><span class="proj-val-txt">חדשנות בתשתיות, מתן מענה לצפיפות דרך יצירתיות</span></div>
+            <div class="proj-val"><span class="proj-val-lbl">לתלמיד:</span><span class="proj-val-txt">למידה משמעותית דרך התנסות, פישוט מושגים מופשטים</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="proj-card">
+        <div class="proj-img img-ph">
+          <svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>תמונה בקרוב</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">גבעתיים</span>
+          <h3 class="proj-title">Queen-B — מצוינות טכנולוגית מגדרית</h3>
+          <p class="proj-desc">תוכנית ייעודית לנערות בחטיבת הביניים המקנה ידע מתקדם בתכנות והיי-טק, בקבוצות מגדריות ליצירת מרחב בטוח ומעצים.</p>
+          <div class="proj-values">
+            <div class="proj-val"><span class="proj-val-lbl">לרשות:</span><span class="proj-val-txt">צמצום פערים מגדריים ב-STEM, הגדלת עתודת המצוינות</span></div>
+            <div class="proj-val"><span class="proj-val-lbl">לתלמידה:</span><span class="proj-val-txt">שבירת "תקרת זכוכית", ביטחון עצמי בתחומים טכנולוגיים</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="proj-card">
+        <div class="proj-img img-ph">
+          <svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>תמונה בקרוב</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">נס ציונה</span>
+          <h3 class="proj-title">תוכנית הוליסטית לחיזוק החינוך הטכנולוגי</h3>
+          <p class="proj-desc">בניית רצף חינוכי-טכנולוגי עירוני מגיל הגן ועד התיכון, כולל מודל "קוד כשפה שלישית" ומרחבי מייקרינג ללמידה התנסותית בארבעה שלבים.</p>
+          <div class="proj-values">
+            <div class="proj-val"><span class="proj-val-lbl">לרשות:</span><span class="proj-val-txt">זינוק במדדי בגרות-טק, מיצוב כחלוצת חדשנות</span></div>
+            <div class="proj-val"><span class="proj-val-lbl">לתלמיד:</span><span class="proj-val-txt">מסוגלות טכנולוגית, יתרון משמעותי לצבא והייטק</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="proj-card">
+        <div class="proj-img img-ph">
+          <svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>תמונה בקרוב</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">נס ציונה</span>
+          <h3 class="proj-title">האקתון יזמי עירוני — מיומנויות STEM</h3>
+          <p class="proj-desc">ליווי והפקת אירועי שיא עירוניים המפגישים מאות תלמידים לפיתוח יזמי של אתגרים מהעולם האמיתי, עם מנטורים מהתעשייה וכלים טכנולוגיים מתקדמים.</p>
+          <div class="proj-values">
+            <div class="proj-val"><span class="proj-val-lbl">לרשות:</span><span class="proj-val-txt">חשיפה תקשורתית רחבה, מיתוג כחממת יזמות</span></div>
+            <div class="proj-val"><span class="proj-val-lbl">לתלמיד:</span><span class="proj-val-txt">חשיבה יזמית, אוריינות טכנולוגית, Pitching ועבודת צוות</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="proj-card">
+        <div class="proj-img img-ph">
+          <svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>תמונה בקרוב</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">נס ציונה</span>
+          <h3 class="proj-title">עידוד למצוינות טכנולוגית — בגרוטק</h3>
+          <p class="proj-desc">תוכנית עירונית להגדלת לומדים במסלולי בגרות יוקרתיים — 5 יח"ל במתמטיקה, אנגלית, פיזיקה ומדעי המחשב, עם דגש על שוויון מגדרי.</p>
+          <div class="proj-values">
+            <div class="proj-val"><span class="proj-val-lbl">לרשות:</span><span class="proj-val-txt">שיפור דרמטי במדדי איכות הבגרות, קידום שוויון</span></div>
+            <div class="proj-val"><span class="proj-val-lbl">לתלמיד:</span><span class="proj-val-txt">העצמה אישית, פתיחת דלתות ליחידות טכנולוגיות</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="proj-card">
+        <div class="proj-img img-ph">
+          <svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>תמונה בקרוב</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">נס ציונה</span>
+          <h3 class="proj-title">DNA של חדשנות — תוכנית עירונית</h3>
+          <p class="proj-desc">הבניית מסגרת רעיונית וקונקרטית ליצירת מערכת חינוך דינמית ויזמית, כולל גיבוש מתודולוגי משותף, מרכזי מצוינות וטכנו-פדגוגיה.</p>
+          <div class="proj-values">
+            <div class="proj-val"><span class="proj-val-lbl">לרשות:</span><span class="proj-val-txt">עיצוב דמות הבוגר, יצירת Ecosystem חינוכי</span></div>
+            <div class="proj-val"><span class="proj-val-lbl">לתלמיד:</span><span class="proj-val-txt">למידה דינמית ורלוונטית, הכנה למציאות משתנה</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="proj-card">
+        <div class="proj-img img-ph">
+          <svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>תמונה בקרוב</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">נס ציונה</span>
+          <h3 class="proj-title">הטמעת מודל BYOD</h3>
+          <p class="proj-desc">מהלך אסטרטגי המאפשר לתלמידים להשתמש במכשיריהם האישיים ככלי למידה מרכזי בכיתה, כולל הכשרת צוותים ובניית ערכת הטמעה ייעודית.</p>
+          <div class="proj-values">
+            <div class="proj-val"><span class="proj-val-lbl">לרשות:</span><span class="proj-val-txt">אופטימיזציה תקציבית, צמצום פערים דיגיטליים</span></div>
+            <div class="proj-val"><span class="proj-val-lbl">לתלמיד:</span><span class="proj-val-txt">הגברת מעורבות בלמידה, אחריות אישית וכלי עבודה פרודוקטיבי</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ ENGAGEMENT ══════════════════════════════════════════ -->
+<section id="engagement">
+  <div class="container">
+
+    <div class="fade-up">
+      <span class="label">שיתוף ציבור</span>
+      <h2 class="section-title">הקהילה כשותפה לשינוי</h2>
+      <p class="section-sub">שיתוף ציבור אמיתי אינו תהליך פורמלי — הוא הדרך היחידה ליצור שינוי שמחזיק לאורך זמן</p>
+    </div>
+
+    <div class="eng-content fade-up">
+      <div class="eng-body">
+        <p>
+          אחד מהמהלכים המשמעותיים שליווינו הוא תהליך רפורמה מעמיק שבו הרשות יזמה
+          שינוי מבני בשיטת ניהול מוסדות החינוך — תהליך שנמשך למעלה משנתיים,
+          תוך עבודה הדוקה עם מנהלי בתי הספר, ההורים והצוותים הפדגוגיים.
+        </p>
+        <p>
+          בתום התהליך, פרשה הרשות בפני ציבור ההורים את מלוא האפשרויות,
+          הסבירה את הכללים ויצרה שותפות אמיתית בין ההנהלה לקהילה —
+          תוך שמירה קפדנית על איזון ושוויון בין כל המוסדות.
+        </p>
+        <p>
+          תהליך שיתוף הציבור כלל מפגשים פתוחים, מסעות הסברה ברשתות החברתיות,
+          מפגשי היכרות וחשיפה בבתי הספר — ויצר תחושת שייכות והזדהות עמוקה
+          של ההורים עם מערכת החינוך העירונית.
+        </p>
+      </div>
+
+      <div class="eng-quote">
+        <p class="q-text">
+          "חינוך פלורליסטי, המאפשר לכל ילד וילדה את המסגרת החינוכית המתאימה
+          עבורם. המהלך יאפשר התאמה של המסגרות לילדים ויעודד את בתי הספר
+          להמשיך להתחדש ולהתבלט."
+        </p>
+        <p class="q-author">ראש עיר, רשות מקומית בישראל</p>
+      </div>
+    </div>
+
+    <!-- 8 image placeholders -->
+    <div class="eng-grid fade-up">
+      <div class="eng-ph img-ph"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>תמונה 1</span></div>
+      <div class="eng-ph img-ph"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>תמונה 2</span></div>
+      <div class="eng-ph img-ph"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>תמונה 3</span></div>
+      <div class="eng-ph img-ph"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>תמונה 4</span></div>
+      <div class="eng-ph img-ph"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>תמונה 5</span></div>
+      <div class="eng-ph img-ph"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>תמונה 6</span></div>
+      <div class="eng-ph img-ph"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>תמונה 7</span></div>
+      <div class="eng-ph img-ph"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>תמונה 8</span></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ BRANDING ════════════════════════════════════════════ -->
+<section id="branding">
+  <div class="container">
+
+    <div class="fade-up">
+      <span class="label">מיתוג ונראות</span>
+      <h2 class="section-title">זהות ויזואלית שמדברת</h2>
+      <p class="section-sub">
+        "אין הזדמנות שנייה לרושם ראשוני." השפה הוויזואלית היא הפנים של אגף החינוך —
+        היא חייבת לשדר סמכותיות לצד חיוניות וחדשנות.
+      </p>
+    </div>
+
+    <div class="brand-layout fade-up">
+      <div class="brand-features">
+
+        <div class="brand-feat">
+          <div class="brand-ico">🎨</div>
+          <div>
+            <h4 class="brand-feat-title">פיתוח זהות מותג</h4>
+            <p class="brand-feat-desc">עיצוב לוגו ייחודי לאגף החינוך, פלטת צבעים, פונטים ואלמנטים גרפיים — כולל ספר מותג מקיף המגדיר את כל ההנחיות לשימוש בזהות החזותית</p>
+          </div>
+        </div>
+
+        <div class="brand-feat">
+          <div class="brand-ico">📐</div>
+          <div>
+            <h4 class="brand-feat-title">גרפיקה שנתית</h4>
+            <p class="brand-feat-desc">20–30 פריטים גרפיים: תבניות מסמכים ומצגות, עיצובים לרשתות חברתיות, שילוט, עלונים, פוסטרים ואינפוגרפיקות נתונים</p>
+          </div>
+        </div>
+
+        <div class="brand-feat">
+          <div class="brand-ico">📱</div>
+          <div>
+            <h4 class="brand-feat-title">נוכחות דיגיטלית</h4>
+            <p class="brand-feat-desc">בניית שפת תוכן לרשתות החברתיות, ניהול שוטף של ערוצים דיגיטליים, לוח תוכן שנתי ומדידת חשיפה ומעורבות</p>
+          </div>
+        </div>
+
+        <div class="brand-feat">
+          <div class="brand-ico">🎬</div>
+          <div>
+            <h4 class="brand-feat-title">הפקות תוכן ווידאו</h4>
+            <p class="brand-feat-desc">סרטוני תדמית מקצועיים, תיעוד אירועים חינוכיים, קליפים לרשתות חברתיות ובנק תמונות ווידאו שנתי לשימוש רב-תכליתי</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 8 branding images (2 columns × 4 rows) -->
+      <div class="brand-gallery">
+        <div class="brand-ph img-ph"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>1</span></div>
+        <div class="brand-ph img-ph"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>2</span></div>
+        <div class="brand-ph img-ph"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>3</span></div>
+        <div class="brand-ph img-ph"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>4</span></div>
+        <div class="brand-ph img-ph"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>5</span></div>
+        <div class="brand-ph img-ph"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>6</span></div>
+        <div class="brand-ph img-ph"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>7</span></div>
+        <div class="brand-ph img-ph"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>8</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ CONTACT ═════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="contact-inner">
+    <span class="contact-lbl">BuzzMarket Group</span>
+    <h2 class="contact-title">ביחד, נהפוך את מערכת<br>החינוך שלכם למותג מנצח</h2>
+    <p class="contact-sub">
+      צרו קשר עם הצוות שלנו ונבנה יחד את מפת הדרכים
+      המותאמת בדיוק לצרכי הרשות שלכם
+    </p>
+    <a href="https://buzzmarket.co.il" target="_blank" rel="noopener" class="btn-gold">
+      לאתר BuzzMarket ←
+    </a>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════ -->
+<footer>
+  © 2025 BuzzMarket Group · כל הזכויות שמורות
+</footer>
+
+
+<script>
+  // Scroll-triggered fade-up
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Navbar shadow on scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
