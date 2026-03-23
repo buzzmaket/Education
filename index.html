@@ -98,15 +98,17 @@
     #hero::after  { content: ''; position: absolute; bottom:-60px; right:5%; width:420px; height:420px; background: radial-gradient(circle, rgba(27,58,107,.05) 0%, transparent 68%); pointer-events:none; }
 
     .hero-inner {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; width: 100%;
+      display: flex; flex-direction: column; align-items: flex-start; width: 100%;
     }
-    .hero-video-wrap {
+    .brand-intro {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 3rem;
+    }
+    .brand-video-wrap {
       position: relative; width: 100%; aspect-ratio: 16/9;
       border-radius: var(--radius-lg); overflow: hidden;
       box-shadow: var(--shadow-lg);
-      animation: heroIn .9s .3s var(--ease) both;
     }
-    .hero-video-wrap iframe {
+    .brand-video-wrap iframe {
       position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
     }
 
@@ -328,6 +330,7 @@
       .pillars-grid   { grid-template-columns: 1fr; }
       .vision-stats   { grid-template-columns: repeat(2,1fr); }
       .brand-cards    { grid-template-columns: 1fr; }
+      .brand-intro    { grid-template-columns: 1fr; }
       .amb-metrics    { grid-template-columns: repeat(2,1fr); }
       .pdf-download-wrap { flex-wrap: wrap; }
     }
@@ -362,14 +365,6 @@
           דרך אבחון מעמיק, חזון אסטרטגי, מיתוג מקצועי ושיתוף ציבור רחב הפכנו מערכות חינוך מקומיות למותגים מובילים. איך זה נראה בפועל, מה התהליך ומה יוצא בסוף — הכל כאן.
         </p>
         <a href="#process" class="btn-primary">← ראו איך עשינו את זה</a>
-      </div>
-      <div class="hero-video-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/3pJ0LKYk8NA"
-          title="BuzzMarket Education"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
       </div>
     </div>
   </div>
@@ -800,13 +795,23 @@
 <section id="branding">
   <div class="container">
 
-    <div class="fade-up">
-      <span class="label">מיתוג ונראות</span>
-      <h2 class="section-title">זהות שמדברת לתושב</h2>
-      <p class="section-sub">
-        "אין הזדמנות שנייה לרושם ראשוני." השפה הוויזואלית היא הפנים של אגף החינוך —
-        היא חייבת לשדר סמכותיות לצד חיוניות וחדשנות.
-      </p>
+    <div class="brand-intro fade-up">
+      <div>
+        <span class="label">מיתוג ונראות</span>
+        <h2 class="section-title">זהות שמדברת לתושב</h2>
+        <p class="section-sub">
+          "אין הזדמנות שנייה לרושם ראשוני." השפה הוויזואלית היא הפנים של אגף החינוך —
+          היא חייבת לשדר סמכותיות לצד חיוניות וחדשנות.
+        </p>
+      </div>
+      <div class="brand-video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/3pJ0LKYk8NA"
+          title="BuzzMarket Education"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
     </div>
 
     <div class="brand-cards fade-up">
