@@ -275,6 +275,14 @@
     /* ── BRANDING ────────────────────────────────────── */
     #branding { padding: 100px 5%; background: var(--gray-100); }
 
+    .brand-grid {
+      display: grid; grid-template-columns: repeat(2,1fr);
+      gap: 2rem;
+    }
+    .brand-text-cell {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 1rem 0;
+    }
     .brand-cards {
       display: grid; grid-template-columns: repeat(2,1fr);
       gap: 2rem; margin-top: 3rem;
@@ -286,7 +294,9 @@
       display: flex; flex-direction: column;
     }
     .brand-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-    .brand-card-img { width: 100%; aspect-ratio: 16/9; }
+    .brand-card-img { width: 100%; aspect-ratio: 16/9; overflow: hidden; }
+    .brand-card-video { position: relative; width: 100%; aspect-ratio: 16/9; }
+    .brand-card-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .brand-card-body { padding: 1.8rem; flex: 1; }
     .brand-card-title {
       font-family: var(--font-display); font-size: 1.15rem;
@@ -330,7 +340,7 @@
       .pillars-grid   { grid-template-columns: 1fr; }
       .vision-stats   { grid-template-columns: repeat(2,1fr); }
       .brand-cards    { grid-template-columns: 1fr; }
-      .brand-intro    { grid-template-columns: 1fr; }
+      .brand-grid     { grid-template-columns: 1fr; }
       .amb-metrics    { grid-template-columns: repeat(2,1fr); }
       .pdf-download-wrap { flex-wrap: wrap; }
     }
@@ -795,8 +805,10 @@
 <section id="branding">
   <div class="container">
 
-    <div class="brand-intro fade-up">
-      <div>
+    <div class="brand-grid fade-up">
+
+      <!-- שורה 1: טקסט + פיתוח זהות מותג -->
+      <div class="brand-text-cell">
         <span class="label">מיתוג ונראות</span>
         <h2 class="section-title">זהות שמדברת לתושב</h2>
         <p class="section-sub">
@@ -804,18 +816,6 @@
           היא חייבת לשדר סמכותיות לצד חיוניות וחדשנות.
         </p>
       </div>
-      <div class="brand-video-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/3pJ0LKYk8NA"
-          title="BuzzMarket Education"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-
-    <div class="brand-cards fade-up">
-
       <div class="brand-card">
         <div class="brand-card-img">
           <img src="assets/images/branding-1.jpg" alt="פיתוח זהות מותג" style="width:100%;height:100%;object-fit:cover;">
@@ -830,18 +830,7 @@
         </div>
       </div>
 
-      <div class="brand-card">
-        <div class="brand-card-img">
-          <img src="assets/images/branding-2.jpg" alt='יח"צ ותקשורת' style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="brand-card-body">
-          <h3 class="brand-card-title">יח"צ ותקשורת</h3>
-          <p class="brand-card-desc">
-            יצרנו קשרי עיתונות עם מדיה מקומית וארצית, הכנסנו כתבות ופרסומים שמספרים את הסיפור החינוכי של הרשות — והפכנו את העשייה הפנימית לידיעה שכולם קוראים.
-          </p>
-        </div>
-      </div>
-
+      <!-- שורה 2: נוכחות דיגיטלית + נוכחות במרחב הציבורי -->
       <div class="brand-card">
         <div class="brand-card-img">
           <img src="assets/images/branding-3.jpg" alt="נוכחות דיגיטלית" style="width:100%;height:100%;object-fit:cover;">
@@ -855,7 +844,6 @@
           </p>
         </div>
       </div>
-
       <div class="brand-card">
         <div class="brand-card-img">
           <img src="assets/images/branding-4.jpg" alt="נוכחות במרחב הציבורי" style="width:100%;height:100%;object-fit:cover;">
@@ -864,6 +852,35 @@
           <h3 class="brand-card-title">נוכחות במרחב הציבורי</h3>
           <p class="brand-card-desc">
             יצרנו נוכחות פיזית של עולם החינוך ברחבי העיר — שלטי חוצות, שילוט עירוני ותוכן שהופך את הגאווה החינוכית לדבר שרואים בכל פינה.
+          </p>
+        </div>
+      </div>
+
+      <!-- שורה 3: יח"צ + הפקות תוכן ווידאו -->
+      <div class="brand-card">
+        <div class="brand-card-img">
+          <img src="assets/images/branding-2.jpg" alt='יח"צ ותקשורת' style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="brand-card-body">
+          <h3 class="brand-card-title">יח"צ ותקשורת</h3>
+          <p class="brand-card-desc">
+            יצרנו קשרי עיתונות עם מדיה מקומית וארצית, הכנסנו כתבות ופרסומים שמספרים את הסיפור החינוכי של הרשות — והפכנו את העשייה הפנימית לידיעה שכולם קוראים.
+          </p>
+        </div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-card-video">
+          <iframe
+            src="https://www.youtube.com/embed/3pJ0LKYk8NA"
+            title="הפקות תוכן ווידאו"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="brand-card-body">
+          <h3 class="brand-card-title">הפקות תוכן ווידאו</h3>
+          <p class="brand-card-desc">
+            הפקת סרטוני תדמית, תיעוד אירועים ותוכן ווידאו לרשתות החברתיות — שמספרים את סיפור הרשות בצורה חיה ומרגשת.
           </p>
         </div>
       </div>
