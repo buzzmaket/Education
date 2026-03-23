@@ -247,20 +247,37 @@
     .amb-metric-lbl { font-size: .8rem; color: rgba(255,255,255,.55); margin-top: .4rem; line-height: 1.4; }
 
     /* PDF Download button */
-    .pdf-download-wrap { margin-top: 4rem; display: flex; align-items: center; gap: 2rem; padding: 2rem 2.5rem; background: var(--gray-100); border-radius: var(--radius-lg); border: 1px solid var(--gray-200); }
-    .pdf-icon { width: 52px; height: 52px; background: var(--navy); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .pdf-download-wrap { margin-top: 4rem; display: grid; grid-template-columns: 180px 1fr; gap: 3rem; align-items: center; padding: 2.5rem; background: var(--gray-100); border-radius: var(--radius-lg); border: 1px solid var(--gray-200); }
+    .pdf-preview { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow-lg); aspect-ratio: 3/4; display: flex; flex-direction: column; padding: 1.2rem 1rem; border-top: 5px solid var(--navy); overflow: hidden; }
+    .pdf-preview-logo { font-family: var(--font-display); font-size: .6rem; font-weight: 700; color: var(--gold); letter-spacing: 1px; margin-bottom: .6rem; }
+    .pdf-preview-title { font-family: var(--font-display); font-size: .72rem; font-weight: 800; color: var(--navy-dark); line-height: 1.5; margin-bottom: auto; }
+    .pdf-preview-lines { margin-top: .8rem; display: flex; flex-direction: column; gap: 5px; }
+    .pdf-preview-line { height: 4px; background: var(--gray-200); border-radius: 2px; }
+    .pdf-preview-line:nth-child(2) { width: 80%; }
+    .pdf-preview-line:nth-child(3) { width: 55%; }
     .pdf-info { flex: 1; }
-    .pdf-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--navy-dark); margin-bottom: .2rem; }
-    .pdf-sub { font-size: .82rem; color: var(--text-light); }
+    .pdf-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--navy-dark); margin-bottom: .4rem; }
+    .pdf-sub { font-size: .9rem; color: var(--text-light); line-height: 1.6; }
+    .pdf-btns { display: flex; gap: 1rem; margin-top: 1.8rem; flex-wrap: wrap; }
     .btn-pdf {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--navy); color: var(--white);
       padding: 12px 26px; border-radius: var(--radius);
-      font-size: .88rem; font-weight: 600;
+      font-size: .9rem; font-weight: 600;
       transition: background .25s, transform .25s, box-shadow .25s;
-      white-space: nowrap; flex-shrink: 0;
+      white-space: nowrap;
     }
     .btn-pdf:hover { background: var(--navy-dark); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(27,58,107,.25); }
+    .btn-pdf-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--navy);
+      border: 2px solid var(--navy);
+      padding: 10px 24px; border-radius: var(--radius);
+      font-size: .9rem; font-weight: 600;
+      transition: background .25s, color .25s, transform .25s;
+      white-space: nowrap;
+    }
+    .btn-pdf-outline:hover { background: var(--navy); color: var(--white); transform: translateY(-1px); }
 
     /* ── ENGAGEMENT ──────────────────────────────────── */
     #engagement { padding: 100px 5%; background: var(--gray-100); }
@@ -662,22 +679,25 @@
 
     <!-- PDF Download -->
     <div class="pdf-download-wrap fade-up">
-      <div class="pdf-icon">
-        <svg width="26" height="26" fill="none" stroke="white" stroke-width="1.8" viewBox="0 0 24 24">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-          <polyline points="14 2 14 8 20 8"/>
-          <line x1="12" y1="18" x2="12" y2="12"/>
-          <polyline points="9 15 12 18 15 15"/>
-        </svg>
+      <div class="pdf-preview">
+        <div class="pdf-preview-logo">BuzzMarket Group</div>
+        <div class="pdf-preview-title">מסמך מיצוב, חזון ואסטרטגיה שיווקית — מערכת החינוך גבעתיים</div>
+        <div class="pdf-preview-lines">
+          <div class="pdf-preview-line"></div>
+          <div class="pdf-preview-line"></div>
+          <div class="pdf-preview-line"></div>
+        </div>
       </div>
       <div class="pdf-info">
         <div class="pdf-title">מסמך מיצוב, חזון ואסטרטגיה שיווקית</div>
         <div class="pdf-sub">דוגמה לתוצר מלא מתום תהליך אסטרטגי — מערכת החינוך גבעתיים</div>
+        <div class="pdf-btns">
+          <a href="assets/מסמך מיצוב, חזון ואסטרטגיה שיווקית – מערכת החינוך גבעתיים..pdf"
+             target="_blank" class="btn-pdf">צפייה במסמך ←</a>
+          <a href="assets/מסמך מיצוב, חזון ואסטרטגיה שיווקית – מערכת החינוך גבעתיים..pdf"
+             download class="btn-pdf-outline">הורדה</a>
+        </div>
       </div>
-      <a href="assets/מסמך מיצוב, חזון ואסטרטגיה שיווקית – מערכת החינוך גבעתיים..pdf"
-         download class="btn-pdf">
-        הורדת המסמך ←
-      </a>
     </div>
 
   </div>
