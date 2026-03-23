@@ -135,7 +135,7 @@
     }
 
     /* ── PROCESS ─────────────────────────────────────── */
-    #process { background: var(--navy-dark); padding: 72px 5%; }
+    #hero { padding-bottom: 80px; }
     .process-lbl { font-size: .72rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 2.8rem; }
     .process-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 1rem; }
     .proc-item { background: var(--white); border-right: 4px solid var(--gold); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.6rem 1.6rem; display: flex; flex-direction: column; gap: .8rem; transition: transform .3s var(--ease), box-shadow .3s var(--ease); }
@@ -411,18 +411,12 @@
         <p class="hero-sub">
           אנחנו הופכים עשייה חינוכית ענפה לסיפור זהות מזוקק שמהדהד בכל בית. אנחנו מתמחים בחשיפת ה-DNA הייחודי של המערכת ותרגומו לנרטיב אסטרטגי המפיח חיים באקוסיסטם העירוני — כזה שמחבר בין הנהגה, צוותים וקהילה סביב שפה אחת וחזון משותף. המטרה שלנו היא להעניק למצוינות החינוכית ביטוי עוצמתי שהופך למקור של גאווה מקומית, מחזק את האמון הציבורי ומהווה מנוע מרכזי לצמיחה חברתית וערכית.
         </p>
-        <a href="#process" class="btn-primary">← ראו איך עשינו את זה</a>
-        <p class="process-lbl" style="margin-top:3rem;">כך נראה התהליך שעשינו</p>
+        <a href="#diagnosis" class="btn-primary">← ראו איך עשינו את זה</a>
       </div>
     </div>
-  </div>
-</section>
 
-
-<!-- ═══ PROCESS ══════════════════════════════════════════ -->
-<section id="process">
-  <div class="container">
-    <div class="process-grid">
+    <p class="process-lbl" style="margin-top:3.5rem; margin-bottom:1.5rem;">כך נראה התהליך שעשינו</p>
+    <div id="process" class="process-grid">
       <div class="proc-item">
         <div class="proc-num">
           <!-- אבחון ומיפוי — זכוכית מגדלת -->
@@ -481,6 +475,7 @@
     </div>
   </div>
 </section>
+<!-- end hero+process -->
 
 
 <!-- ═══ DIAGNOSIS ════════════════════════════════════════ -->
