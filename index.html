@@ -76,7 +76,7 @@
     #nav {
       position: fixed; inset: 0 0 auto 0; z-index: 200;
       height: 64px; padding: 0 5%;
-      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+      display: flex; align-items: center; justify-content: space-between;
       background: rgba(255,255,255,.96); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--gray-200); transition: box-shadow .3s;
     }
@@ -388,9 +388,8 @@
 
 <!-- ═══ NAV ════════════════════════════════════════════ -->
 <nav id="nav">
-  <div style="justify-self:start;"></div>
-  <a href="#" class="nav-logo" style="justify-self:center;"><img src="assets/images/logo.png" alt="לוגו" style="height:36px; width:auto; display:block;"></a>
-  <ul class="nav-links" style="justify-self:end;">
+  <a href="#" class="nav-logo"><img src="assets/images/logo.png" alt="לוגו" style="height:36px; width:auto; display:block;"></a>
+  <ul class="nav-links">
     <li><a href="#diagnosis">אבחון ומיפוי</a></li>
     <li><a href="#vision">חזון ואסטרטגיה</a></li>
     <li><a href="#branding">מיתוג ונראות</a></li>
