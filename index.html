@@ -387,6 +387,8 @@
       .amb-metrics    { grid-template-columns: repeat(2,1fr); }
       .pdf-download-wrap { grid-template-columns: 1fr; }
       .pdf-preview { aspect-ratio: 1/1; max-width: 100%; }
+      .pdf-book-wrap { grid-template-columns: 1fr !important; }
+      .pdf-book-wrap .pillars-2x2 { grid-template-columns: 1fr 1fr !important; }
     }
   </style>
 </head>
@@ -623,7 +625,7 @@
     </div>
 
     <!-- PDF + Pillars wrapper -->
-    <div class="fade-up" style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--gray-200); display: grid; grid-template-columns: 1fr 1fr;">
+    <div class="fade-up pdf-book-wrap" style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--gray-200); display: grid; grid-template-columns: 1fr 1fr;">
 
       <!-- עמודה ימין — ספר החינוך -->
       <div style="display: flex; flex-direction: column;">
@@ -631,16 +633,16 @@
         <div style="flex: 1; overflow: hidden; min-height: 220px;">
           <img src="assets/images/map.jpg" alt="ספר החינוך גבעתיים" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
-        <!-- כותרת + כפתור -->
-        <div style="background: var(--navy); padding: 1.8rem 2rem;">
-          <div style="font-size:1.1rem; font-weight:700; color: var(--white); margin-bottom:.4rem;">ספר החינוך של גבעתיים</div>
-          <div style="font-size:.82rem; color:rgba(255,255,255,.6); margin-bottom:1.2rem; line-height:1.5;">דוגמה לתוצר מתום תהליך אסטרטגי שנתי — מערכת החינוך גבעתיים</div>
-          <a href="assets/Buzzmatket_Giv.pdf" target="_blank" class="btn-pdf" style="background:var(--gold); color:var(--navy);">צפייה במסמך ←</a>
+        <!-- כותרת + כפתור — ממורכז, לא נוגע בקצוות -->
+        <div style="background: var(--navy); flex: 0 0 auto; display:flex; flex-direction:column; justify-content:center; align-items:flex-end; padding: 1.8rem 2rem 1.8rem 1.5rem;">
+          <div style="font-size:1.1rem; font-weight:700; color: var(--white); margin-bottom:.4rem; text-align:right;">ספר החינוך של גבעתיים</div>
+          <div style="font-size:.82rem; color:rgba(255,255,255,.6); margin-bottom:1.2rem; line-height:1.5; text-align:right;">דוגמה לתוצר מתום תהליך אסטרטגי שנתי — מערכת החינוך גבעתיים</div>
+          <a href="assets/Buzzmatket_Giv.pdf" target="_blank" class="btn-pdf" style="background:var(--gold); color:var(--navy); align-self:flex-start;">צפייה במסמך ←</a>
         </div>
       </div>
 
       <!-- עמודה שמאל — 4 קארדים 2×2 -->
-      <div style="background: var(--white); padding: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 1rem;">
+      <div class="pillars-2x2" style="background: var(--white); padding: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 1rem;">
         <div class="pillar" style="box-shadow:none; background: var(--gray-100); margin:0;">
           <div class="pillar-num">01</div>
           <h4 class="pillar-title">חוסן ומוגנות</h4>
