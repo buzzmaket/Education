@@ -623,43 +623,43 @@
     </div>
 
     <!-- PDF + Pillars wrapper -->
-    <div class="fade-up" style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--gray-200);">
+    <div class="fade-up" style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--gray-200); display: grid; grid-template-columns: 1fr 1fr;">
 
-      <!-- כותרת ספר — navy header -->
-      <div style="background: var(--navy); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
-        <div style="display:flex; align-items:center; gap: 1.5rem;">
-          <img src="assets/images/map.jpg" alt="ספר החינוך גבעתיים" style="width:64px; height:64px; object-fit:cover; border-radius: var(--radius); flex-shrink:0; border: 2px solid rgba(255,255,255,.15);">
-          <div>
-            <div style="font-size:1.1rem; font-weight:700; color: var(--white); margin-bottom:.3rem;">ספר החינוך של גבעתיים</div>
-            <div style="font-size:.85rem; color:rgba(255,255,255,.6);">דוגמה לתוצר מתום תהליך אסטרטגי שנתי — מערכת החינוך גבעתיים</div>
-          </div>
+      <!-- עמודה ימין — ספר החינוך -->
+      <div style="display: flex; flex-direction: column;">
+        <!-- תמונה -->
+        <div style="flex: 1; overflow: hidden; min-height: 220px;">
+          <img src="assets/images/map.jpg" alt="ספר החינוך גבעתיים" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
-        <a href="assets/Buzzmatket_Giv.pdf" target="_blank" class="btn-pdf" style="background:var(--gold); color:var(--navy); flex-shrink:0;">צפייה במסמך ←</a>
+        <!-- כותרת + כפתור -->
+        <div style="background: var(--navy); padding: 1.8rem 2rem;">
+          <div style="font-size:1.1rem; font-weight:700; color: var(--white); margin-bottom:.4rem;">ספר החינוך של גבעתיים</div>
+          <div style="font-size:.82rem; color:rgba(255,255,255,.6); margin-bottom:1.2rem; line-height:1.5;">דוגמה לתוצר מתום תהליך אסטרטגי שנתי — מערכת החינוך גבעתיים</div>
+          <a href="assets/Buzzmatket_Giv.pdf" target="_blank" class="btn-pdf" style="background:var(--gold); color:var(--navy);">צפייה במסמך ←</a>
+        </div>
       </div>
 
-      <!-- 4 קארדים -->
-      <div style="background: var(--white); padding: 2rem 2.5rem;">
-        <div class="pillars-grid">
-          <div class="pillar" style="box-shadow:none; background: var(--gray-100);">
-            <div class="pillar-num">01</div>
-            <h4 class="pillar-title">חוסן ומוגנות</h4>
-            <p class="pillar-desc">מערכת חינוך עמידה עם מעטפת טיפולית מלידה ועד בגרות — לשגרה ולמצב חירום</p>
-          </div>
-          <div class="pillar" style="box-shadow:none; background: var(--gray-100);">
-            <div class="pillar-num">02</div>
-            <h4 class="pillar-title">דמוקרטיה ואזרחות</h4>
-            <p class="pillar-desc">חינוך לאזרחות פעילה, ערכי שיתוף ומעורבות קהילתית כבר מגיל הגן ועד לתיכון</p>
-          </div>
-          <div class="pillar" style="box-shadow:none; background: var(--gray-100);">
-            <div class="pillar-num">03</div>
-            <h4 class="pillar-title">חדשנות ו-STEM</h4>
-            <p class="pillar-desc">הכנת התלמיד לעולם של AI, טכנולוגיה ויזמות דרך למידה חווייתית, מעשית ורלוונטית</p>
-          </div>
-          <div class="pillar" style="box-shadow:none; background: var(--gray-100);">
-            <div class="pillar-num">04</div>
-            <h4 class="pillar-title">ההון אנושי</h4>
-            <p class="pillar-desc">פיתוח, שימור והעצמה של הצוותים החינוכיים — המנוע האמיתי של השינוי</p>
-          </div>
+      <!-- עמודה שמאל — 4 קארדים 2×2 -->
+      <div style="background: var(--white); padding: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 1rem;">
+        <div class="pillar" style="box-shadow:none; background: var(--gray-100); margin:0;">
+          <div class="pillar-num">01</div>
+          <h4 class="pillar-title">חוסן ומוגנות</h4>
+          <p class="pillar-desc">מערכת חינוך עמידה עם מעטפת טיפולית מלידה ועד בגרות — לשגרה ולמצב חירום</p>
+        </div>
+        <div class="pillar" style="box-shadow:none; background: var(--gray-100); margin:0;">
+          <div class="pillar-num">02</div>
+          <h4 class="pillar-title">דמוקרטיה ואזרחות</h4>
+          <p class="pillar-desc">חינוך לאזרחות פעילה, ערכי שיתוף ומעורבות קהילתית כבר מגיל הגן ועד לתיכון</p>
+        </div>
+        <div class="pillar" style="box-shadow:none; background: var(--gray-100); margin:0;">
+          <div class="pillar-num">03</div>
+          <h4 class="pillar-title">חדשנות ו-STEM</h4>
+          <p class="pillar-desc">הכנת התלמיד לעולם של AI, טכנולוגיה ויזמות דרך למידה חווייתית, מעשית ורלוונטית</p>
+        </div>
+        <div class="pillar" style="box-shadow:none; background: var(--gray-100); margin:0;">
+          <div class="pillar-num">04</div>
+          <h4 class="pillar-title">ההון אנושי</h4>
+          <p class="pillar-desc">פיתוח, שימור והעצמה של הצוותים החינוכיים — המנוע האמיתי של השינוי</p>
         </div>
       </div>
 
